@@ -1,3 +1,4 @@
+require 'byebug'
 require_relative "board"
 
 class SudokuGame
@@ -48,8 +49,9 @@ class SudokuGame
 
   def play_turn
     board.render
-    val = get_pos
-    pos = get_val
+    # debugger
+    pos = get_pos
+    val = get_val
     board[pos] = val
   end
 
@@ -65,8 +67,8 @@ class SudokuGame
 
   def valid_pos?(pos)
     pos.is_a?(Array) &&
-      pos.length == 2 &&
-      pos.all? { |x| x.between?(0, board.size - 1) }
+    pos.length == 2 &&
+    pos.all? { |x| x.between?(0, board.size - 1) }
   end
 
   def valid_val?(val)
